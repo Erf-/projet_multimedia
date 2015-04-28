@@ -1,0 +1,10 @@
+fonctionnalites:
+
+-arene -- en cours
+-placement des disques -- en cours
+-placement sphere
+-gestion des trous
+-animation bras robot
+-affichage temps sphere courante
+-affichage temps global sequence de jeu en cours
+-affichage temps records
