@@ -4,6 +4,10 @@
 #define MYGLWIDGET_H
 
 #include <QGLWidget>
+#include <QtGui>
+#include <QtOpenGL>
+#include <GL/glu.h>
+
 
 class MyGLWidget : public QGLWidget
 {
