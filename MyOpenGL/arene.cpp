@@ -10,10 +10,10 @@ Arene::Arene()
  * si la sphere est dans l'axe du "trou" de l'arene ou pas
  */
 Arene::sphere_axee(Sphere &s){//A TERMINER
-    if(is_c_in_hole()){
+    if(is_s_in_hole()){
         emit sphere_axee(s);
     }
 }
-bool Arene::is_c_in_hole(){
-
+bool Arene::is_s_in_hole(Sphere &s){
+    return true;
 }
