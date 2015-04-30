@@ -12,6 +12,7 @@ public:
     Arene();
 public slots:
     bool genererSphere();//renverra true si la sphere est generee et false sinon
+    bool is_c_in_hole();//condition
 signals:
     void sphere_axee(Sphere &s);/*sera connecte a la generation d'une nouvelle sphere et plus tard a la fin de partie*/
 
