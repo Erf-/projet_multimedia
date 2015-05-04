@@ -17,12 +17,14 @@ SOURCES += main.cpp\
     myglwidget.cpp \
     cercle_troue.cpp \
     arene.cpp \
-    sphere.cpp
+    sphere.cpp \
+    math2.cpp
 
 HEADERS  += window.h \
     myglwidget.h \
     cercle_troue.h \
     arene.h \
-    sphere.h
+    sphere.h \
+    math2.h
 
 FORMS    += window.ui
