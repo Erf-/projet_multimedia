@@ -4,6 +4,7 @@
 #include <QDesktopWidget>
 
 #include "window.h"
+#include "math2.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,5 +21,15 @@ int main(int argc, char *argv[])
         window.show();
     else
         window.showMaximized();
+
+    //TESTS
+    Vec a(1.0, 2.0, 0.0);
+    Vec b(2.0, 1.0, 0.0);
+    Vec c = a - b;
+    Vec d = a*3;
+//    qDebug<<a.x_<<" "<<a.y_<<" "<<a.z_;
+//    qDebug<<c.x_<<" "<<c.y_<<" "<<c.z_;
+//    qDebug<<d.x_<<" "<<d.y_<<" "<<d.z_;
+
     return app.exec();
 }

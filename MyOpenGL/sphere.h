@@ -1,5 +1,3 @@
-
-
 #ifndef SPHERE_H
 #define SPHERE_H
 
@@ -23,8 +21,10 @@ public :
 
 public slots:
     bool texture(GLuint &textureId);
-    draw();
+    //draw();
 
 protected:
 
 };
+
+#endif //SPHERE_H
