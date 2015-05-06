@@ -3,6 +3,7 @@
 
 #include "sphere.h"
 #include "cercle_troue.h"
+#include "math2.h"
 
 
 class Arene

@@ -1,17 +1,17 @@
-Creation de la classe math2.
+Implementation de la classe math2.
 
-Creation de la classe Vec qui permettra de gerer des vecteurs de taille fixe egale a 3.
-
-La creation de cette classe permet juste d'implementer des methodes de calcul telle que la norme 
-ou le produit scaliare en dimension 3.
-
-Cette classe est (supposee) moins gourmande que la classe vector qui doit gerer des problematiques 
-de multithreading qui ne sont pas gerees ici.
+Completion des methodes existantes.
+Correction des erreurs.
+Creation d'un namespace math2 juste pour le fun et pour simplifier l'appel des methodes pscal, norm, etc.
 
 
 A faire:
  - completer les methodes
  - tester
 
+<<<<<<< HEAD
 Date: 04/05/2015
 >>>>>>> 7e36555... Creation de la classe math2.
+=======
+Date: 06/05/2015
+>>>>>>> 864aa9c... Implementation de la classe math2.

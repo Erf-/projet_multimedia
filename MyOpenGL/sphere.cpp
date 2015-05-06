@@ -1,4 +1,3 @@
-
 #include "Sphere.h"
 
 Sphere::Sphere (GLdouble x, GLdouble y, GLdouble z)
