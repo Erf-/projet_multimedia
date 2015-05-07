@@ -1,12 +1,13 @@
-Implementation de la classe math2.
+Implementation de la classe math2 2.
 
-Completion des methodes existantes.
-Correction des erreurs.
+Completion des methodes existantes (Math2.h et Arene.h).
 Creation d'un namespace math2 juste pour le fun et pour simplifier l'appel des methodes pscal, norm, etc.
+Creation de variables statiques _X_, _Y_ et _Z_ representant les axes x, y et z de l'espace.
+Tests elementaires effectues.
 
 
 A faire:
  - completer les methodes
- - tester
+ - tester le fonctionnement sur de vraies spheres
 
-Date: 06/05/2015
+Date: 07/05/2015

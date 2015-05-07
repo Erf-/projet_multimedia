@@ -32,6 +32,9 @@ class Math2
         static GLdouble dist(Vec a, Vec b){return b.distV(a);}
     };
 namespace math2 {
+    static Vec _X_ = Vec(1.0, 0.0, 0.0);
+    static Vec _Y_ = Vec(0.0, 1.0, 0.0);
+    static Vec _Z_ = Vec(0.0, 0.0, 1.0);
     GLdouble pscal(Vec a, Vec b);
     GLdouble norm(Vec a);
     GLdouble dist(Vec a, Vec b);
