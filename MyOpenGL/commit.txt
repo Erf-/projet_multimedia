@@ -1,0 +1,8 @@
+Preparation mise a jour master.
+
+Essais de mise a jour de la branche master a partir de arene.
+Apprentissage de la commande git cherry-pick [...].
+
+A faire:
+- Lister les commits a copier
+- Realiser la mise a jour
