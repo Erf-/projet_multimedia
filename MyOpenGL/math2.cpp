@@ -14,7 +14,7 @@ namespace math2
     GLdouble norm(Vec a){
         return Math2::norm(a);
     }
-    GLdouble dist(Vec a, Vec b){
+    /*GLdouble dist(Vec a, Vec b){
         return Math2::dist(a, b);
-    }
+    }*/
 }

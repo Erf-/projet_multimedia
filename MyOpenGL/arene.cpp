@@ -17,15 +17,12 @@ void Arene::sphere_axee(Sphere &s){//A TERMINER
     }
 }
 bool Arene::is_s_in_hole(Sphere &s){
-    Vec x(1.0, 0.0, 0.0);
-    Vec y(0.0, 1.0, 0.0);
-    Vec z(0.0, 0.0, 1.0);
     Vec CS(s.x_-c.xint_, s.y_-c.yint_, s.z_-c.zint_);
     Vec CM(CS*((norm(CS)+s.radius_)/norm(CS)));
     Vec CH;
     Vec SM;
     SM = CM - CS;
-    CH = x*pscal(CM,x) + y*pscal(CM,y);
+    CH = _X_*pscal(CM,_X_) + _Y_*pscal(CM,_Y_);
     if (norm(CH)<=c.radius_int){
         return true;
     }
