@@ -1,6 +1,7 @@
 // myglwidget.cpp
 
 #include "myglwidget.h"
+#include "arene.h"
 
 MyGLWidget::MyGLWidget(QWidget *parent)
     : QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
@@ -192,13 +193,6 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
 
 void MyGLWidget::draw()
 {
-    //definition des couleurs
-    GLfloat Rouge[] = {0.8f, 0.0f, 0.0f, 0.25f};
-    GLfloat Vert[] = {0.0f, 0.8f, 0.0f, 0.25f};
-    GLfloat Bleu[] = {0.0f, 0.0f, 0.8f, 0.25f};
-    GLfloat Jaune[] = {0.8f, 0.8f, 0.0f, 0.25f};
-    GLfloat Rose[] = {0.8f, 0.0f, 0.8f, 0.25f};
-    GLfloat Cyan[] = {0.0f, 0.8f, 0.8f, 0.25f};
 
     //initialisation gl
     glEnable(GL_DEPTH_TEST);
@@ -212,43 +206,5 @@ void MyGLWidget::draw()
     glEnable(GL_COLOR_MATERIAL);
     glPointSize (3);
 
-    //arene
-
-    //variables
-    GLUquadric* params = gluNewQuadric();
-    GLdouble height = 10.0;
-    GLdouble radius = 5.0;
-
-    //visible
-    /*
-     * on doit faire en sorte que le trou soit deja genere ici
-     * cad absence de dessin
-     */
-    glColor3f(3,1,2);
-    gluDisk(params,0.0,radius,20,1);
-    gluDeleteQuadric(params);
-
-
-    //transparent
-//    glBindTexture(GL_TEXTURE_2D,texture1);
-//    gluQuadricTexture(params,GL_TRUE);
-    glTranslatef(0,0,-(float)height/2);
-    glDisable( GL_CULL_FACE );
-    glEnable( GL_BLEND );
-    glDepthMask (GL_FALSE);
-    glColor4fv(Rose);//color4f pour la transparence
-//    glColor3f(3,1,2);
-    gluQuadricDrawStyle(params,GLU_FILL);
-    gluQuadricTexture(params,GL_TRUE);
-    gluCylinder(params,radius,radius,height,20,1);
-    gluDeleteQuadric(params);
-    glDepthMask (GL_TRUE);
-    glDisable( GL_BLEND );
-    glEnable( GL_CULL_FACE );
-
-    //
-
-    glDisable( GL_TEXTURE_2D );
-    glEnable( GL_CULL_FACE );
-
+    (new Sphere())->draw();
 }

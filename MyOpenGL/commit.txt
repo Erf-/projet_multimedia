@@ -1,13 +1,10 @@
-Implementation de la classe math2 2.
+Generation de spheres.
 
-Completion des methodes existantes (Math2.h et Arene.h).
-Creation d'un namespace math2 juste pour le fun et pour simplifier l'appel des methodes pscal, norm, etc.
-Creation de variables statiques _X_, _Y_ et _Z_ representant les axes x, y et z de l'espace.
-Tests elementaires effectues.
+Implementation des methodes bool Arene::genererSpehre() et bool Arene::genererNspheres(int n) qui utilisent la methode double * rand_a_b(double b, double a=0.0, int n=0) de generation aleatoire de types "double".
+Ecriture des methodes void Sphere::draw() et void Arene::draw().
+Creation de la classe Bras_robot qui contiendra ce dernier.
 
-
-A faire:
- - completer les methodes
- - tester le fonctionnement sur de vraies spheres
-
-Date: 07/05/2015
+A faire :
+- Tester
+- Commenter
+- Refactoring

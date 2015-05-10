@@ -1,7 +1,5 @@
 #include "arene.h"
 
-using namespace math2;
-
 Arene::Arene()
 {
 }
@@ -27,4 +25,14 @@ bool Arene::is_s_in_hole(Sphere &s){
         return true;
     }
     return false;
+}
+void Arene::genererSphere(){
+    double r = rand_a_b(c.radius_ext-Sphere::radius_)[0];
+    double theta = rand_a_b(1,2*M_PI)[0];
+    double psi = rand_a_b(1,2*M_PI)[1];
+    Sphere s(r*sin(psi)*cos(theta),r*sin(psi)*sin(theta),r*cos(psi));
+    s.draw();
+}
+void Arene::draw(){
+    c.draw();
 }

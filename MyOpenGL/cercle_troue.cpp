@@ -1,13 +1,13 @@
 #include "cercle_troue.h"
 
 Cercle_troue::Cercle_troue(double radius_int, double radius_ext, double dist, double angle, double x_, double y_, double z_){
-    this->radius_int = GLdouble(radius_int);
-    this->radius_ext = GLdouble(radius_ext);
-    this->dist = GLdouble(dist);
-    this->angle = GLdouble(angle);
-    this->x_ = GLdouble(x_);
-    this->y_ = GLdouble(y_);
-    this->z_ = GLdouble(z_);
+    this->radius_int = radius_int;
+    this->radius_ext = radius_ext;
+    this->dist = dist;
+    this->angle = angle;
+    this->x_ = x_;
+    this->y_ = y_;
+    this->z_ = z_;
 }
 
 /**
@@ -44,7 +44,6 @@ bool Cercle_troue::calcul(GLdouble nb_points)
  * methode utilisant les coordonnees claculees dans Cercle_troue::calcul
  * pour dessiner le cercle troue
  */
-/*Cercle_troue::draw()
+void Cercle_troue::draw()
 {
 }
-*/

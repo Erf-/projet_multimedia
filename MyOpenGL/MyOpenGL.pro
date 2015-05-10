@@ -18,13 +18,15 @@ SOURCES += main.cpp\
     cercle_troue.cpp \
     arene.cpp \
     sphere.cpp \
-    math2.cpp
+    math2.cpp \
+    bras_robot.cpp
 
 HEADERS  += window.h \
     myglwidget.h \
     cercle_troue.h \
     arene.h \
     sphere.h \
-    math2.h
+    math2.h \
+    bras_robot.h
 
 FORMS    += window.ui

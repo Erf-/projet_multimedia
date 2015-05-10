@@ -6,22 +6,22 @@
 #include <QtOpenGL>
 #include <GL/glu.h>
 
-// La sphère est une spécialisation d'un sphéroide.
+// La sphere est une spécialisation d'un spheroide.
 class Sphere
 {
-    GLUquadric* params = gluNewQuadric();
+    GLUquadric* params;
 
 public :
-    Sphere(GLdouble x, GLdouble y, GLdouble z);
+    Sphere(double x=0.0, double y=0.0, double z=0.0);
     ~Sphere () ;
-    GLdouble radius_;
+    const static GLdouble radius_ = 0.5;
     GLdouble x_;
     GLdouble y_;
     GLdouble z_;
 
 public slots:
     bool texture(GLuint &textureId);
-    //draw();
+    void draw();
 
 protected:
 

@@ -27,7 +27,7 @@ public:
     GLdouble radius_ext;
 public slots:
     bool calcul(GLdouble nb_points);//ici on va calculer les points neccesaires a la creation du disque troue
-    //draw();
+    void draw();
 
 };
 
