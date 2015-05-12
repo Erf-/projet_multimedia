@@ -15,8 +15,8 @@ class Arene
 public:
     Arene();
 private slots:
-public slots:
     void genererSphere();
+public slots:
     bool genererNSpheres(int n){int i=0;for(i=0;i<n;i++) genererSphere(); return (i==n);}
     bool is_s_in_hole(Sphere &s);//condition
     void draw();

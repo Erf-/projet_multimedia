@@ -1,10 +1,18 @@
-Generation de spheres.
+Tests classe Arene 0.
 
-Implementation des methodes bool Arene::genererSpehre() et bool Arene::genererNspheres(int n) qui utilisent la methode double * rand_a_b(double b, double a=0.0, int n=0) de generation aleatoire de types "double".
-Ecriture des methodes void Sphere::draw() et void Arene::draw().
-Creation de la classe Bras_robot qui contiendra ce dernier.
+Tests et refactoring de la classe Sphere:
+	- completion de la methode void Sphere::draw()
+	- test
+Tests et refactoring de la classe Cercle_troue.
+	- refactoring de la methode bool Cercle_troue::calcul()
+	- ecriture de la methode void Cercle_troue::draw()
+	- refactoring du constructeur ou est maintenant executee la methode bool Cercle_troue::calcul()
+	- tests
+Test de la methode void Arene::draw()
 
 A faire :
-- Tester
+- Tester generation multiple
 - Commenter
 - Refactoring
+
+Date : 12/05/2015 (nuit du 11/05/2015 au 12/05/2015)

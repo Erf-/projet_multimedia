@@ -5,6 +5,7 @@
 
 #include "window.h"
 #include "math2.h"
+#include "arene.h"
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +33,10 @@ int main(int argc, char *argv[])
 //    qDebug()<<a.x_<<" "<<a.y_<<" "<<a.z_;
 //    qDebug()<<c.x_<<" "<<c.y_<<" "<<c.z_;
 //    qDebug()<<d.x_<<" "<<d.y_<<" "<<d.z_;
+
+    //Classe Cercle_troue
+//    Cercle_troue c = Cercle_troue();
+//    c.draw();
 
     return app.exec();
 }

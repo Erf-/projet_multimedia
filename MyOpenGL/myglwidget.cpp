@@ -193,7 +193,6 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
 
 void MyGLWidget::draw()
 {
-
     //initialisation gl
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
@@ -206,5 +205,21 @@ void MyGLWidget::draw()
     glEnable(GL_COLOR_MATERIAL);
     glPointSize (3);
 
-    (new Sphere())->draw();
+    glEnable( GL_BLEND );
+    Arene a = Arene();
+    a.draw();
+    a.genererNSpheres(4);
+//    glDepthMask (GL_FALSE);
+//    glColor4fv(Rose);
+//    (new Sphere())->draw();
+//    (new Sphere(2.5))->draw();
+//    (new Sphere(2.5,2.5))->draw();
+//    glColor3f(3,1,2);
+//    (new Cercle_troue(0.5,2.0,0.5,30.0,0.0,0.0,0.0,20))->draw();
+//    (new Cercle_troue(30,1.0,3.0,1.5,30))->draw();
+//    glDepthMask (GL_TRUE);
+//    glDisable( GL_BLEND );
+//    glEnable( GL_CULL_FACE );
+//    glDisable( GL_TEXTURE_2D );
+//    glEnable( GL_CULL_FACE );
 }

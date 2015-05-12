@@ -25,4 +25,5 @@ namespace math2
         }
         return res;
     }
+
 }

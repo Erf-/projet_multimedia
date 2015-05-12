@@ -33,6 +33,8 @@ class Math2
 //        static GLdouble dist(Vec a, Vec b){return b.distV(a);}
     };
 namespace math2 {
+
+    //definition des 3 axes de l'espace 3D
     static Vec _X_ = Vec(1.0, 0.0, 0.0);
     static Vec _Y_ = Vec(0.0, 1.0, 0.0);
     static Vec _Z_ = Vec(0.0, 0.0, 1.0);
@@ -47,7 +49,7 @@ namespace math2 {
 //    static GLfloat Vert[] = {0.0f, 0.8f, 0.0f, 0.25f};
 //    static GLfloat Bleu[] = {0.0f, 0.0f, 0.8f, 0.25f};
 //    static GLfloat Jaune[] = {0.8f, 0.8f, 0.0f, 0.25f};
-//    static GLfloat Rose[] = {0.8f, 0.0f, 0.8f, 0.25f};
+    static GLfloat Rose[] = {0.8f, 0.0f, 0.8f, 0.25f};
 //    static GLfloat Cyan[] = {0.0f, 0.8f, 0.8f, 0.25f};
 }
 

@@ -5,6 +5,9 @@
 #include <QtGui>
 #include <QtOpenGL>
 #include <GL/glu.h>
+#include "math2.h"
+
+using namespace math2;
 
 // La sphere est une spécialisation d'un spheroide.
 class Sphere
@@ -14,7 +17,7 @@ class Sphere
 public :
     Sphere(double x=0.0, double y=0.0, double z=0.0);
     ~Sphere () ;
-    const static GLdouble radius_ = 0.5;
+    const static GLdouble radius_ = 3.0;
     GLdouble x_;
     GLdouble y_;
     GLdouble z_;
