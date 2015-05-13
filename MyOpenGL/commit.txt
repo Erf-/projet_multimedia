@@ -1,18 +1,10 @@
-Tests classe Arene 0.
+Refactoring classe Cercle_troue 0.
 
-Tests et refactoring de la classe Sphere:
-	- completion de la methode void Sphere::draw()
-	- test
-Tests et refactoring de la classe Cercle_troue.
-	- refactoring de la methode bool Cercle_troue::calcul()
-	- ecriture de la methode void Cercle_troue::draw()
-	- refactoring du constructeur ou est maintenant executee la methode bool Cercle_troue::calcul()
-	- tests
-Test de la methode void Arene::draw()
+Creation de la classe Cercle qui servira de classe mere a la classe Disque_troue et qui sera en association multiple avec cette derniere.
+Creation de la classe Disque_troue qui sera l'homologue de la classe Cercle_troue mais qiu sera apte a gerer la generation multiple de trous.
 
 A faire :
-- Tester generation multiple
+- Continuer l'ecriture des methodes
 - Commenter
-- Refactoring
 
-Date : 12/05/2015 (nuit du 11/05/2015 au 12/05/2015)
+Date : 13/05/2015
