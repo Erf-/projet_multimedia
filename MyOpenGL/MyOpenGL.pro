@@ -21,7 +21,9 @@ SOURCES += main.cpp\
     math2.cpp \
     bras_robot.cpp \
     cercle.cpp \
-    disque_troue.cpp
+    disque_troue.cpp \
+    trou.cpp \
+    cible.cpp
 
 HEADERS  += window.h \
     myglwidget.h \
@@ -31,6 +33,8 @@ HEADERS  += window.h \
     math2.h \
     bras_robot.h \
     cercle.h \
-    disque_troue.h
+    disque_troue.h \
+    trou.h \
+    cible.h
 
 FORMS    += window.ui

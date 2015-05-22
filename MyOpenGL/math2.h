@@ -17,6 +17,8 @@ public:
     Vec(double x=0.0, double y=0.0, double z=0.0);
     GLdouble pscalV(Vec v){return v.x_*x_+v.y_*y_+v.z_*z_;}
     GLdouble normV(){return sqrt(pscalV(Vec(x_,y_,z_)));}
+    GLdouble angle(Vec v);
+    Vec orth(){return Vec(-y_,x_,0);}
     Vec operator -(Vec v){return Vec(x_-v.x_, y_-v.y_, z_-v.z_);}
     Vec operator +(Vec v){return Vec(x_+v.x_, y_+v.y_, z_+v.z_);}
     Vec operator *(Vec v){return Vec(y_*v.z_-z_*v.y_,-x_*v.z_+z_*v.x_,x_*v.y_-y_*v.x_);}
@@ -40,6 +42,7 @@ namespace math2 {
     static Vec _Z_ = Vec(0.0, 0.0, 1.0);
     GLdouble pscal(Vec a, Vec b);
     GLdouble norm(Vec a);
+    GLdouble angle(Vec u, Vec v);
 //    GLdouble dist(Vec a, Vec b);
 
     double * rand_a_b(double b, double a=0.0, int n=0);

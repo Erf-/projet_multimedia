@@ -9,7 +9,6 @@
 
 using namespace math2;
 
-// La sphere est une spécialisation d'un spheroide.
 class Sphere
 {
     GLUquadric* params;

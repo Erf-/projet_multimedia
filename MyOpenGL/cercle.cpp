@@ -10,14 +10,14 @@
  * dans le constructeur de la classe Cercle, on initialise le tableau de poins via
  * l'appele de la methode calcul
  */
-Cercle::Cercle(int nb_points_=30, double radius_=3.0, double x_=0.0, double y_=0.0, double z_=0.0)
+Cercle::Cercle(int nb_points, double radius, double x, double y, double z)
 {
-    this->radius_ = radius_;
-    this->x_ = x_;
-    this->y_ = y_;
-    this->z_ = z_;
-    this->nb_points_=nb_points_;
-    points_ = new GLfloat [nb_points_][3];
+    this->radius_ = radius;
+    this->x_ = x;
+    this->y_ = y;
+    this->z_ = z;
+    this->nb_points_=nb_points;
+    points_ = new GLfloat [nb_points][3];
     calcul();
 }
 /**
@@ -59,4 +59,13 @@ bool Cercle::calcul()
  */
 void Cercle::draw()
 {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glDisable( GL_CULL_FACE );
+    glEnable( GL_BLEND );
+    glBegin(GL_LINE_LOOP);
+    for(int i=0;i<nb_points-1;i++){
+        glVertex3f(points_[i][0],points_[i][1],points_[i][2]);
+    }
+    glDisable( GL_BLEND );
+    glEnable( GL_CULL_FACE );
 }

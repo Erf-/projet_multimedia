@@ -1,10 +1,11 @@
-Refactoring classe Cercle_troue 0.
+Refactoring classe Cercle_troue 2.
 
-Creation de la classe Cercle qui servira de classe mere a la classe Disque_troue et qui sera en association multiple avec cette derniere.
-Creation de la classe Disque_troue qui sera l'homologue de la classe Cercle_troue mais qiu sera apte a gerer la generation multiple de trous.
+Creation des classes Cible et Trou
+Ecriture des methodes d'ajout et de dessins des cibles et trou dans le disque troue
+...
 
 A faire :
 - Continuer l'ecriture des methodes
-- Commenter
+- Tester
 
-Date : 13/05/2015
+Date : 22/05/2015

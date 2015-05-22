@@ -5,6 +5,20 @@ Vec::Vec(double x, double y, double z){
     y_=y;
     z_=z;
 }
+/**
+ * @brief Vec::angle
+ * @param v
+ * @return
+ * ici on ne retourne que la valeur absolue de l'angle
+ */
+GLdouble Vec::angle(Vec v){
+    Vec a = Vec(x_,y_,z_)*(1/normV());
+    Vec b = v*(1/v.normV());
+    if(a.pscalV(b.orth())*a.pscalV(b.orth())!=1.0){
+        return acos(a.pscalV(b));
+    }
+    return M_PI/2;
+}
 
 namespace math2
 {
@@ -24,6 +38,9 @@ namespace math2
             res[i]=(rand()/(double)RAND_MAX)*(b-a) +a;
         }
         return res;
+    }
+    GLdouble angle(Vec u, Vec v){
+        return u.angle(v);
     }
 
 }
