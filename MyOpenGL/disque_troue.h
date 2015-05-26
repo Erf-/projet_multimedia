@@ -6,6 +6,8 @@
 #include <QPoint>
 #include "cible.h"
 #include "trou.h"
+#include <QtOpenGL>
+#include <GL/glu.h>
 
 using namespace math2;
 
@@ -22,6 +24,7 @@ public:
     Cible cibles_[10];//ici les cercles en questions pourront etre de type trou ou cible
     Trou trou_;
     int taille_;
+    GLuint texture_;
 
     Disque_troue(int nb_points=30, double radius=3.0, double x=0.0, double y=0.0, double z=0.0);
     ~Disque_troue();
@@ -31,6 +34,7 @@ private slots:
 public slots:
     bool add(Cible &c);
     bool setTrou(Trou &t);
+    void setTexture(GLuint texture){texture_=texture;}
     void add(int n);
     void remove(Cible c);
     void draw();

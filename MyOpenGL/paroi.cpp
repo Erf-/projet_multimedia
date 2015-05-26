@@ -5,12 +5,12 @@ Paroi::Paroi(int nb_points, double radius, double x, double y, double z) : Cercl
 }
 void Paroi::draw()
 {
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glDisable( GL_CULL_FACE );
     glEnable( GL_BLEND );
     glDepthMask(GL_TRUE);
     glBegin(GL_QUAD_STRIP);
-//    glColor4fv(Bleu);
+    glColor4fv(Jaune);
     for(int i=0;i<nb_points_-1;i++){
         glVertex3d(points_[i][0],points_[i][1],points_[i][2]);
         glVertex3d(points_[i][0],points_[i][1],points_[i][2]+h);

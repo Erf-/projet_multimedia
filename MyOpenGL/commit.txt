@@ -1,10 +1,12 @@
-Refactoring classe Cercle_troue (fin).
+Implementation de l'arene.
 
-Implementation et tests de la classe Disque_troue:
+Implementation de la classe paroi et test
  - dessin
- - ajout de cibles pseudo-aleatoirement ou pas
- - commentaires
-Remplacement des instances de la classe Cercle_troue par Disque_troue.
-Suppression de la classe Cercle_troue.
+Ajout des elements de l'arene dans les membres.
+
+A faire:
+ - commenter
+ - tester
+ - ecriture des methodes necessaires
 
 Date : 26/05/2015

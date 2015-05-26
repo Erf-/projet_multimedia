@@ -51,7 +51,7 @@ namespace math2 {
 //    static GLfloat Rouge[] = {0.8f, 0.0f, 0.0f, 0.25f};
 //    static GLfloat Vert[] = {0.0f, 0.8f, 0.0f, 0.25f};
     static GLfloat Bleu[] = {0.0f, 0.0f, 0.8f, 0.25f};
-//    static GLfloat Jaune[] = {0.8f, 0.8f, 0.0f, 0.25f};
+    static GLfloat Jaune[] = {0.8f, 0.8f, 0.0f, 0.25f};
     static GLfloat Rose[] = {0.8f, 0.0f, 0.8f, 0.25f};
 //    static GLfloat Cyan[] = {0.0f, 0.8f, 0.8f, 0.25f};
 

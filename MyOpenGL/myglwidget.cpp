@@ -1,7 +1,6 @@
 // myglwidget.cpp
 
 #include "myglwidget.h"
-#include "arene.h"
 
 MyGLWidget::MyGLWidget(QWidget *parent)
     : QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
@@ -9,10 +8,10 @@ MyGLWidget::MyGLWidget(QWidget *parent)
     xRot = 0;
     yRot = 0;
     zRot = 0;
-    d = Disque_troue();
+    a = Arene();
     Trou t = Trou(30,0.8,-1.2,1.2,0.0);
-    d.setTrou(t);
-    d.add(5);
+    a.d_.setTrou(t);
+    a.d_.add(5);
 }
 
 MyGLWidget::~MyGLWidget()
@@ -144,10 +143,6 @@ void MyGLWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // permet d'effacer les 2 buffer
     glLoadIdentity(); // permet de reinnitialiser les coor local vers les coor global
-    /* glTranslatef(0.0, 0.0, -10.0);
-    glRotatef(xRot / 16.0, 1.0, 0.0, 0.0);
-    glRotatef(yRot / 16.0, 0.0, 1.0, 0.0);
-    glRotatef(zRot / 16.0, 0.0, 0.0, 1.0);*/
     glRotatef(90, 1.0, 0.0, 0.0);
     glRotatef(90, 0.0, 0.0, 1.0);
     glTranslatef(-20, 0.0, 0.0); // on se met dans une bonne orientation pour voir l'objet (caméra et obj a la mm place)
@@ -155,6 +150,12 @@ void MyGLWidget::paintGL()
     glRotatef(-xRot / 1.0, 0.0, 1.0, 0.0); // coor spérique téta
     glRotatef(-yRot / 1.0, 0.0, 0.0, 1.0); // phy
     glRotatef(-zRot / 1.0, 1.0, 0.0, 0.0); // doit etre lisse, pas saccadé pas trop rapide
+    /*
+     * valeurs initiales :
+     * glRotatef(-xRot / 1.0, 0.0, 1.0, 0.0);
+     * glRotatef(-yRot / 1.0, 0.0, 0.0, 1.0);
+     * glRotatef(-zRot / 1.0, 1.0, 0.0, 0.0);
+     */
     draw();
 }
 
@@ -208,40 +209,8 @@ void MyGLWidget::draw()
     glLineWidth ( 1.0f );
     glEnable(GL_COLOR_MATERIAL);
     glPointSize (3);
-
     glEnable( GL_BLEND );
-//    Trou t = Trou();
-//    d.setTrou(t);
-//    int k=0;
-//    while(k<10){
-//        d.add();
-//        k++;
-//    }
-//    Cible c = Cible(30,0.5,-1.2,1.2,0.0);
-//    glColor4fv(Rose);
-//    c.draw();
-//    d.add(c);
-//    Cible c2 = Cible(30,0.5,1.2,-1.2,0.7);
-//    d.add(c2);
-//    c.draw();
-//    c2.draw();
-//    d.draw();
-//    t.draw();
-//    Arene a = Arene();
-//    a.draw();
-//    a.genererNSpheres(4);
-//    glDepthMask (GL_FALSE);
-//    glColor4fv(Rose);
-//    (new Sphere())->draw();
-//    (new Sphere(2.5))->draw();
-//    (new Sphere(2.5,2.5))->draw();
-//    glColor3f(3,1,2);
-//    (new Cercle_troue(0.5,2.0,0.5,30.0,0.0,0.0,0.0,20))->draw();
-//    (new Cercle_troue(30,1.0,3.0,1.5,30))->draw();
-//    (new Disque_troue())->draw();
-//    glDepthMask (GL_TRUE);
-//    glDisable( GL_BLEND );
-//    glEnable( GL_CULL_FACE );
-//    glDisable( GL_TEXTURE_2D );
-//    glEnable( GL_CULL_FACE );
+
+    glScaled(2.0,2.0,2.0);
+    a.draw();
 }

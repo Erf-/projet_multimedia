@@ -105,7 +105,8 @@ void Disque_troue::draw(){
     glDisable( GL_CULL_FACE );
     glEnable( GL_BLEND );
     glDepthMask (GL_FALSE);
-    glColor4fv(Rose);
+//    glColor4fv(Rose);
+    glBindTexture(GL_TEXTURE_2D,texture);
     glBegin(GL_QUAD_STRIP);
     for(int i=0;i<nb_points_-1;i++){
         glVertex3f(trou_.points_[i][0],trou_.points_[i][1],trou_.points_[i][2]);

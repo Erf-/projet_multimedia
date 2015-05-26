@@ -2,6 +2,9 @@
 #define PAROI_H
 
 #include "cercle.h"
+#include "math2.h"
+
+using namespace math2;
 
 class Paroi : public Cercle
 {
