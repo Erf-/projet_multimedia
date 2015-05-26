@@ -7,10 +7,12 @@
 #include <QtGui>
 #include <QtOpenGL>
 #include <GL/glu.h>
+#include "disque_troue.h"
 
 
 class MyGLWidget : public QGLWidget
 {
+    Disque_troue d;
     Q_OBJECT
 public:
     explicit MyGLWidget(QWidget *parent = 0);

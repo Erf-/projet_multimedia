@@ -37,6 +37,16 @@ int main(int argc, char *argv[])
     //Classe Cercle_troue
 //    Cercle_troue c = Cercle_troue();
 //    c.draw();
+//    double tab[7];
+//    tab[0]=rand_a_b(3,0,5)[0];
+//    tab[1]=rand_a_b(3,0,5)[0];
+//    tab[2]=rand_a_b(3,0,5)[1];
+//    tab[3]=rand_a_b(3,0,5)[2];
+//    tab[4]=rand_a_b(3,0,5)[3];
+//    tab[5]=rand_a_b(3,0,5)[4];
+//    tab[6]=rand_a_b(3,0,5)[0];
+//    for(int i=0;i<7;i++)
+//        qDebug()<<tab[i];
 
     return app.exec();
 }

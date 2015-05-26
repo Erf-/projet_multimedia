@@ -39,12 +39,12 @@ bool Cercle::calcul()
     if (nb_points_!=0)
     {
         radius_step = 2*M_PI/nb_points_;
-        points_[0][0]=radius_;
-        points_[0][1]=0;
+        points_[0][0]=radius_+x_;
+        points_[0][1]=0+y_;
         points_[0][2]=z_;
         for(int i = 1; i<nb_points_; i++){
-            points_[i][0]=radius_*cos(i*radius_step);
-            points_[i][1]=radius_*sin(i*radius_step);
+            points_[i][0]=radius_*cos(i*radius_step)+x_;
+            points_[i][1]=radius_*sin(i*radius_step)+y_;
             points_[i][2]=z_;
         }
         return true;
@@ -62,10 +62,13 @@ void Cercle::draw()
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glDisable( GL_CULL_FACE );
     glEnable( GL_BLEND );
+    glDepthMask(GL_TRUE);
     glBegin(GL_LINE_LOOP);
-    for(int i=0;i<nb_points-1;i++){
-        glVertex3f(points_[i][0],points_[i][1],points_[i][2]);
+    for(int i=0;i<nb_points_;i++){
+        glVertex3d(points_[i][0],points_[i][1],points_[i][2]);
     }
+    glEnd();
     glDisable( GL_BLEND );
     glEnable( GL_CULL_FACE );
+    glDepthMask(GL_FALSE);
 }

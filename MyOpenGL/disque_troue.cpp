@@ -3,6 +3,7 @@
 Disque_troue::Disque_troue(int nb_points, double radius, double x, double y, double z) : Cercle(nb_points, radius, x, y, z)
 
 {
+    trou_=Trou(nb_points,radius/4,x,y,z);
     taille_=0;
 }
 Disque_troue::~Disque_troue(){
@@ -17,7 +18,8 @@ Disque_troue::~Disque_troue(){
  */
 bool Disque_troue::calculDistance(Cercle c){
     Vec v_0 = Vec(this->x_-c.x_, this->y_-c.y_, this->z_-c.z_);
-    if(norm(v_0)+c.radius_<=this->radius_){
+    Vec v_1 = Vec(trou_.x_-c.x_, trou_.y_-c.y_, trou_.z_-c.z_);
+    if((norm(v_0)+c.radius_<=this->radius_)&&(norm(v_1)>=trou_.radius_+c.radius_)){
         return true;
     }
     return false;
@@ -30,12 +32,16 @@ bool Disque_troue::calculDistance(Cercle c){
  * @return true ou false si l'ajout du noouveau voisin est possible ou pas
  * ici on va tester si l'ajout d'un voisin de type cercle (trou ou cible) est possible
  */
-bool Disque_troue::is_addPossible(Cible c){
+bool Disque_troue::is_addPossible(Cible &c){
+//    c.z_=z_; ?
+    if(taille_==0)
+        return calculDistance(c);
+    if(norm(Vec(c.x_-trou_.x_,c.y_-trou_.y_,0.0))<(c.radius_+trou_.radius_))
+        return false;
     for(int i=0;i<taille_;i++){
         if(norm(Vec(c.x_-cibles_[i].x_,c.y_-cibles_[i].y_,0.0))<(c.radius_+cibles_[i].radius_))
             return false;
     }
-    c.z_=z_;
     return calculDistance(c);
 }
 
@@ -44,9 +50,10 @@ bool Disque_troue::is_addPossible(Cible c){
  * @param c
  * @return true ou false selon la reussite de l'operation
  */
-bool Disque_troue::add(Cible c){
+bool Disque_troue::add(Cible &c){
     if (is_addPossible(c)){
-        cibles_[taille_]=c;
+        Cible c1 = Cible(nb_points_, c.radius_, c.x_, c.y_, z_);
+        cibles_[taille_]=c1;
         taille_++;
         return true;
     }
@@ -58,13 +65,18 @@ bool Disque_troue::add(Cible c){
  * ici on va essayer d'ajouter un trou de maniere aleatoire.
  * Pour cela on rempli les parametres du constructeur de manière aleatoire
  */
-bool Disque_troue::add(){
-    double val[3];
-    val[0]=rand_a_b(radius_/2,0.0)[0];
-    val[1]=rand_a_b(radius_,0.0,3)[0];
-    val[2]=rand_a_b(radius_,0.0,3)[1];
-    Cible c = Cible(nb_points_,val[0],val[1],val[2],0.0);
-    return add(c);
+void Disque_troue::add(int n){
+    srand(time(NULL));
+    int k=0;
+    while(k!=n){
+        double val[3];
+        val[0]=rand_a_b(radius_/3,radius_/4)[0];
+        val[1]=rand_a_b(radius_-val[0],-radius_+val[0],2)[0];
+        val[2]=rand_a_b(radius_-val[0],-radius_+val[0],2)[1];
+        Cible c = Cible(nb_points_,val[0],val[1],val[2],z_);
+        if (add(c))
+            k++;
+    }
 }
 
 /**
@@ -73,7 +85,7 @@ bool Disque_troue::add(){
  * @return true ou false en fonction de la reussite de l'operation
  * ici on va initialiser le trou si le trou fourni en entree convient
  */
-bool Disque_troue::setTrou(Trou t){
+bool Disque_troue::setTrou(Trou &t){
     t.z_=z_;
     if(norm(Vec(t.x_-x_,t.y_-y_,0.0))+t.radius_>(radius_))
         return false;

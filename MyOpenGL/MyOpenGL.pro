@@ -15,7 +15,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
         window.cpp \
     myglwidget.cpp \
-    cercle_troue.cpp \
     arene.cpp \
     sphere.cpp \
     math2.cpp \
@@ -23,11 +22,11 @@ SOURCES += main.cpp\
     cercle.cpp \
     disque_troue.cpp \
     trou.cpp \
-    cible.cpp
+    cible.cpp \
+    paroi.cpp
 
 HEADERS  += window.h \
     myglwidget.h \
-    cercle_troue.h \
     arene.h \
     sphere.h \
     math2.h \
@@ -35,6 +34,7 @@ HEADERS  += window.h \
     cercle.h \
     disque_troue.h \
     trou.h \
-    cible.h
+    cible.h \
+    paroi.h
 
 FORMS    += window.ui

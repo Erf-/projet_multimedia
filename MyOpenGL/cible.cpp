@@ -6,7 +6,15 @@ Cible::Cible(int nb_points, double radius, double x, double y, double z) : Cercl
 }
 
 void Cible::draw(){
+    glColor4fv(Bleu);
     this->Cercle::draw();
     //on va dessiner cint_ en transparence
+    glDisable( GL_CULL_FACE );
+    glEnable( GL_BLEND );
+    glDepthMask (GL_FALSE);
+    glColor4fv(Rose);
     cint_.draw();
+    glDepthMask (GL_TRUE);
+    glDisable( GL_BLEND );
+    glEnable( GL_CULL_FACE );
 }

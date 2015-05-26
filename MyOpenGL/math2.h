@@ -45,15 +45,16 @@ namespace math2 {
     GLdouble angle(Vec u, Vec v);
 //    GLdouble dist(Vec a, Vec b);
 
-    double * rand_a_b(double b, double a=0.0, int n=0);
+    double * rand_a_b(double b, double a=0.0, const int n=1, bool save=false);
 
     //definition des couleurs
 //    static GLfloat Rouge[] = {0.8f, 0.0f, 0.0f, 0.25f};
 //    static GLfloat Vert[] = {0.0f, 0.8f, 0.0f, 0.25f};
-//    static GLfloat Bleu[] = {0.0f, 0.0f, 0.8f, 0.25f};
+    static GLfloat Bleu[] = {0.0f, 0.0f, 0.8f, 0.25f};
 //    static GLfloat Jaune[] = {0.8f, 0.8f, 0.0f, 0.25f};
     static GLfloat Rose[] = {0.8f, 0.0f, 0.8f, 0.25f};
 //    static GLfloat Cyan[] = {0.0f, 0.8f, 0.8f, 0.25f};
+
 }
 
 #endif // MATH2_H

@@ -2,15 +2,15 @@
 #define ARENE_H
 
 #include "sphere.h"
-#include "cercle_troue.h"
 #include "math2.h"
 #include "bras_robot.h"
+#include "disque_troue.h"
 
 using namespace math2;
 
 class Arene
 {
-    Cercle_troue c;
+    Disque_troue d;
     Bras_robot b;
 public:
     Arene();

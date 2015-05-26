@@ -31,9 +31,23 @@ namespace math2
     /*GLdouble dist(Vec a, Vec b){
         return Math2::dist(a, b);
     }*/
-    double * rand_a_b(double b, double a, int n){
-        srand(time(NULL));
-        double res[n+1];
+    /**
+     * @brief rand_a_b
+     * @param b
+     * @param a
+     * @param n
+     * @param save
+     * @return un tableau de valeurs
+     * fonction de generation aleatoire
+     * lorsque save est a true on sauvegarde
+     * le tableau de valeur cad que lorsque
+     * l'on rappelle la fonction il renvoie
+     * les memes valeurs
+     */
+    double * rand_a_b(double b, double a, const int n, bool save){
+        if(save)
+            srand(time(NULL));
+        double res[n];
         for(int i=0; i<n; i++){
             res[i]=(rand()/(double)RAND_MAX)*(b-a) +a;
         }

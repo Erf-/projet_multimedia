@@ -19,7 +19,7 @@ public:
      * mais on va juste utiliser un tableau car il n'y a pas nécessité de sortir
      * l'artillerie lourde. La taille des tableaux sera geree par la variable int taille.
      */
-    Cible cibles_[];//ici les cercles en questions pourront etre de type trou ou cible
+    Cible cibles_[10];//ici les cercles en questions pourront etre de type trou ou cible
     Trou trou_;
     int taille_;
 
@@ -27,11 +27,11 @@ public:
     ~Disque_troue();
 private slots:
     bool calculDistance(Cercle c);//calculera les distances avec les centres
-    bool is_addPossible(Cible c);
+    bool is_addPossible(Cible &c);
 public slots:
-    bool add(Cible c);
-    bool setTrou(Trou t);
-    bool add();//generation aleatoire de cible
+    bool add(Cible &c);
+    bool setTrou(Trou &t);
+    void add(int n);
     void remove(Cible c);
     void draw();
 };

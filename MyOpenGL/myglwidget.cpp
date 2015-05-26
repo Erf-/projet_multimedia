@@ -9,6 +9,10 @@ MyGLWidget::MyGLWidget(QWidget *parent)
     xRot = 0;
     yRot = 0;
     zRot = 0;
+    d = Disque_troue();
+    Trou t = Trou(30,0.8,-1.2,1.2,0.0);
+    d.setTrou(t);
+    d.add(5);
 }
 
 MyGLWidget::~MyGLWidget()
@@ -206,9 +210,26 @@ void MyGLWidget::draw()
     glPointSize (3);
 
     glEnable( GL_BLEND );
-    Arene a = Arene();
-    a.draw();
-    a.genererNSpheres(4);
+//    Trou t = Trou();
+//    d.setTrou(t);
+//    int k=0;
+//    while(k<10){
+//        d.add();
+//        k++;
+//    }
+//    Cible c = Cible(30,0.5,-1.2,1.2,0.0);
+//    glColor4fv(Rose);
+//    c.draw();
+//    d.add(c);
+//    Cible c2 = Cible(30,0.5,1.2,-1.2,0.7);
+//    d.add(c2);
+//    c.draw();
+//    c2.draw();
+//    d.draw();
+//    t.draw();
+//    Arene a = Arene();
+//    a.draw();
+//    a.genererNSpheres(4);
 //    glDepthMask (GL_FALSE);
 //    glColor4fv(Rose);
 //    (new Sphere())->draw();
@@ -217,6 +238,7 @@ void MyGLWidget::draw()
 //    glColor3f(3,1,2);
 //    (new Cercle_troue(0.5,2.0,0.5,30.0,0.0,0.0,0.0,20))->draw();
 //    (new Cercle_troue(30,1.0,3.0,1.5,30))->draw();
+//    (new Disque_troue())->draw();
 //    glDepthMask (GL_TRUE);
 //    glDisable( GL_BLEND );
 //    glEnable( GL_CULL_FACE );

@@ -1,11 +1,10 @@
-Refactoring classe Cercle_troue 2.
+Refactoring classe Cercle_troue (fin).
 
-Creation des classes Cible et Trou
-Ecriture des methodes d'ajout et de dessins des cibles et trou dans le disque troue
-...
+Implementation et tests de la classe Disque_troue:
+ - dessin
+ - ajout de cibles pseudo-aleatoirement ou pas
+ - commentaires
+Remplacement des instances de la classe Cercle_troue par Disque_troue.
+Suppression de la classe Cercle_troue.
 
-A faire :
-- Continuer l'ecriture des methodes
-- Tester
-
-Date : 22/05/2015
+Date : 26/05/2015
