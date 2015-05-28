@@ -55,6 +55,7 @@ namespace math2 {
     static GLfloat Rose[] = {0.8f, 0.0f, 0.8f, 0.25f};
 //    static GLfloat Cyan[] = {0.0f, 0.8f, 0.8f, 0.25f};
 
+    GLuint loadtgadisplayCDV ( const char* filename );
 }
 
 #endif // MATH2_H

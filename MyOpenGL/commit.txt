@@ -1,12 +1,11 @@
-Implementation de l'arene.
+Implementation de l'arene 2.
 
-Implementation de la classe paroi et test
- - dessin
-Ajout des elements de l'arene dans les membres.
+Test effectues.
+Refactoring
+Couleurs et textures.
 
 A faire:
- - commenter
- - tester
- - ecriture des methodes necessaires
+ - Refactoring eventuel
+ - Bras_robot
 
-Date : 26/05/2015
+Date : 28/05/2015

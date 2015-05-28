@@ -7,8 +7,13 @@
 #include <QtGui>
 #include <QtOpenGL>
 #include <GL/glu.h>
+#include <GL/gl.h>
 #include "arene.h"
+#include "math2.h"
 
+using namespace math2;
+
+//GLuint loadtgadisplayCDV(const char* filename);
 
 class MyGLWidget : public QGLWidget
 {

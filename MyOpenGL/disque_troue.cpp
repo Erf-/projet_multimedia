@@ -5,6 +5,7 @@ Disque_troue::Disque_troue(int nb_points, double radius, double x, double y, dou
 {
     trou_=Trou(nb_points,radius/4,x,y,z);
     taille_=0;
+//    texture_=loadtgadisplayCDV("C:/Users/Johanna/Desktop/multimedia/MyOpenGL/bois.tga");
 }
 Disque_troue::~Disque_troue(){
 }
@@ -99,25 +100,33 @@ bool Disque_troue::setTrou(Trou &t){
  * les cibles puis le trou en transparence
  */
 void Disque_troue::draw(){
-    for(int i=0;i<taille_;i++)
-        cibles_[i].draw();
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glClear(GL_COLOR_BUFFER_BIT);
     glDisable( GL_CULL_FACE );
-    glEnable( GL_BLEND );
-    glDepthMask (GL_FALSE);
-//    glColor4fv(Rose);
-    glBindTexture(GL_TEXTURE_2D,texture);
+//    glEnable(GL_TEXTURE_2D);
+
+    glColor3f(1,1,1);
+//    glBindTexture(GL_TEXTURE_2D, texture_);
+
+
     glBegin(GL_QUAD_STRIP);
     for(int i=0;i<nb_points_-1;i++){
+        glTexCoord2f((trou_.points_[i][0]/radius_)/2+1/2,(trou_.points_[i][1]/radius_)/2+1/2);
         glVertex3f(trou_.points_[i][0],trou_.points_[i][1],trou_.points_[i][2]);
+        glTexCoord2f((points_[i][0]/radius_)/2+1/2,(points_[i][1]/radius_)/2+1/2);
         glVertex3f(points_[i][0],points_[i][1],points_[i][2]);
+        glTexCoord2f((trou_.points_[i+1][0]/radius_)/2+1/2,(trou_.points_[i+1][1]/radius_)/2+1/2);
         glVertex3f(trou_.points_[i+1][0],trou_.points_[i+1][1],trou_.points_[i+1][2]);
+        glTexCoord2f((points_[i+1][0]/radius_)/2+1/2,(points_[i+1][1]/radius_)/2+1/2);
         glVertex3f(points_[i+1][0],points_[i+1][1],points_[i+1][2]);
     }
+    glTexCoord2f((trou_.points_[0][0]/radius_)/2+1/2,(trou_.points_[0][1]/radius_)/2+1/2);
     glVertex3f(trou_.points_[0][0],trou_.points_[0][1],trou_.points_[0][2]);
+    glTexCoord2f((points_[0][0]/radius_)/2+1/2,(points_[0][1]/radius_)/2+1/2);
     glVertex3f(points_[0][0],points_[0][1],points_[0][2]);
     glEnd();
-    glDepthMask (GL_TRUE);
-    glDisable( GL_BLEND );
+
+//    glDisable(GL_TEXTURE_2D);
     glEnable( GL_CULL_FACE );
+    for(int i=0;i<taille_;i++)
+        cibles_[i].draw();
 }

@@ -3,11 +3,8 @@
 
 #include "cercle.h"
 #include "math2.h"
-#include <QPoint>
 #include "cible.h"
 #include "trou.h"
-#include <QtOpenGL>
-#include <GL/glu.h>
 
 using namespace math2;
 
@@ -34,7 +31,7 @@ private slots:
 public slots:
     bool add(Cible &c);
     bool setTrou(Trou &t);
-    void setTexture(GLuint texture){texture_=texture;}
+    void setTexture(const char* filename){texture_=loadtgadisplayCDV(filename);}
     void add(int n);
     void remove(Cible c);
     void draw();

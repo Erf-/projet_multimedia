@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>rose.tga</file>
+        <file>bois.tga</file>
+    </qresource>
+</RCC>

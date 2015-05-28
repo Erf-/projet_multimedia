@@ -38,3 +38,6 @@ HEADERS  += window.h \
     paroi.h
 
 FORMS    += window.ui
+
+RESOURCES += \
+    images.qrc

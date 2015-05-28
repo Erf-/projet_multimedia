@@ -38,6 +38,6 @@ void Arene::genererSphere(){
     s.draw();
 }
 void Arene::draw(){
-    p_.draw();
     d_.draw();
+    p_.draw();
 }

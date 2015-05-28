@@ -10,11 +10,9 @@ void Cible::draw(){
     this->Cercle::draw();
     //on va dessiner cint_ en transparence
     glDisable( GL_CULL_FACE );
-    glEnable( GL_BLEND );
     glDepthMask (GL_FALSE);
     glColor4fv(Rose);
     cint_.draw();
     glDepthMask (GL_TRUE);
-    glDisable( GL_BLEND );
     glEnable( GL_CULL_FACE );
 }
