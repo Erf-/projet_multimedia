@@ -13,8 +13,6 @@
 
 using namespace math2;
 
-//GLuint loadtgadisplayCDV(const char* filename);
-
 class MyGLWidget : public QGLWidget
 {
     Arene a;

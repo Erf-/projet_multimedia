@@ -41,3 +41,7 @@ FORMS    += window.ui
 
 RESOURCES += \
     images.qrc
+
+OTHER_FILES += \
+    bois.tga \
+    rose.tga
