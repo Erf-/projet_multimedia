@@ -32,13 +32,13 @@ bool Arene::is_s_in_hole(Sphere &s){
 //    s.draw();
 //}
 
-void Arene::sphere_axee(){
+//void Arene::sphere_axee(){
 
-}
+//}
 
-void Arene::moved(){
+//void Arene::moved(){
 
-}
+//}
 
 void Arene::draw(){
     d_.draw();

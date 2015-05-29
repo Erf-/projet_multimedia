@@ -1,8 +1,7 @@
-Initialisation robot 2.
+Mouvement robot 0.
 
-Definition des champs de la classe.
-Bras_robot::draw() finalisee.
-Test dessin et ajout dans arene.
+Ecriture des signaux et slots necessaires dans MyGLWidget.
+Connections signaux et slots correpondats.
 
 A faire:
  - ajout des methodes de deplacement
@@ -10,4 +9,4 @@ A faire:
  - continuer l'ecriture des methodes
  - commenter
 
-Date : 28/05/2015
+Date : 29/05/2015

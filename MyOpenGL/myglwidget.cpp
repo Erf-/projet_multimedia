@@ -15,12 +15,52 @@ MyGLWidget::MyGLWidget(QWidget *parent)
     xRot = 0;
     yRot = 0;
     zRot = 0;
-    a = Arene();
-    Trou t = Trou(30,0.8,-1.2,1.2,0.0);
-    a.d_.setTrou(t);
-    a.d_.add(5);
+    QObject::connect(this,SIGNAL(moved()),this,SLOT(draw()));
+//    a = Arene();
+//    Trou t = Trou(30,0.8,-1.2,1.2,0.0);
+//    a.d_.setTrou(t);
+//    a.d_.add(5);
 //    d.setTexture(":/images/bois");
 //    d.setTexture("C:/Users/Johanna/Desktop/multimedia/MyOpenGL/bois.tga");
+}
+
+void MyGLWidget::genSphere(int n){
+    double x;//=rand(...);
+    double y;//=rand(...);
+    double z;//=rand(...);
+    QObject::connect(this,SIGNAL(sphereGeneree(x,y,z))),this,SLOT(atteindre(x,y,y));
+    //generation
+    emit sphereGeneree(x,y,z);
+}
+
+void MyGLWidget::atteindre(double x, double y, double z, bool trou){
+    double pas[3];//(finpos-pos)/nbimages
+    QTimer *timer = new QTimer(this);
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(avancer(x,y,z,trou,pas)));
+    timer->start(1000);
+}
+
+void MyGLWidget::avancer(double x, double y, double z, bool trou, double * pas){
+    if(/*pos=!finpos*/){
+        //pos+=pas;
+        emit moved();
+    }
+    else{
+        if(trou)
+            emit trouAtteint();
+        else
+            emit sphereAtteinte(x,y,z);
+    }
+}
+
+double * MyGLWidget::finalPos(double x, double y, double z){
+    Vec u = Vec(x,y,z);
+    double d = norm(u);
+    double a = 1.2;
+    double b = 1.6;
+    u =u*(1/norm(u));
+    double fintab[3]={acos((a*a+d*d-b*b)/(2*a*b)),acos((a*a+b*b-d*d)/(2*a*b)),angle(_X_,u)};
+    return fintab;
 }
 
 MyGLWidget::~MyGLWidget()

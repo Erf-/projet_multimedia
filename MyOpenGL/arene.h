@@ -28,9 +28,9 @@ public:
 private slots:
     void genererSphere();    
 signals:
-    void sphere_ciblee();
-    void sphere_axee();
-    void moved();
+//    void sphere_ciblee();
+//    void sphere_axee();
+//    void moved();
 
 };
 

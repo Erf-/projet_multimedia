@@ -39,12 +39,21 @@ public slots:
     void setXRotation(int angle);
     void setYRotation(int angle);
     void setZRotation(int angle);
+    void avancer(double x, double y, double z, bool trou=false, double *pas);
+    void atteindre(double x, double y, double z, bool trou=false);
+    void genSphere(int n=1);
+    double *finalPos(double x, double y, double z);
 
 signals:
     // signaling rotation from mouse movement
     void xRotationChanged(int angle);
     void yRotationChanged(int angle);
     void zRotationChanged(int angle);
+    // evenements de gestion du jeu
+    void moved();
+    void sphereGeneree(double x, double y, double z);
+    void sphereAtteinte(double x, double y, double z);
+    void trouAtteint();
 
 private:
     void draw();
