@@ -7,6 +7,8 @@
 #include <GL/glu.h>
 #include <windows.h>
 
+#include "bras_robot.h"
+
 MyGLWidget::MyGLWidget(QWidget *parent)
     : QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
 {
@@ -80,6 +82,8 @@ void MyGLWidget::initializeGL()
     glPointSize ( 1.0f );
     glLineWidth ( 1.0f );
     glPointSize (3);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glDisable( GL_CULL_FACE );
 
 //    GLtexture[0]=loadtgadisplayCDV("C:/Users/Johanna/Desktop/multimedia/MyOpenGL/bois.tga");
     GLtexture[0]=loadtgadisplayCDV("Z:/profile.V2/multimedia/MyOpenGL/bois.tga");
@@ -99,8 +103,8 @@ void MyGLWidget::paintGL()
     glTranslatef(-20, 0.0, 0.0); // on se met dans une bonne orientation pour voir l'objet (caméra et obj a la mm place)
 
     glRotatef(-xRot / 1.0, 0.0, 1.0, 0.0); // coor spérique téta
-    glRotatef(-yRot / 1.0, 0.0, 0.0, 1.0); // phy
-    glRotatef(-zRot / 1.0, 1.0, 0.0, 0.0); // doit etre lisse, pas saccadé pas trop rapide
+    glRotatef(-yRot / 1.0, 1.0, 0.0, 0.0); // phy
+    glRotatef(-zRot / 1.0, 0.0, 0.0, 1.0); // doit etre lisse, pas saccadé pas trop rapide
     draw();
 }
 
@@ -143,10 +147,17 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
 
 void MyGLWidget::draw()
 {
-    glEnable(GL_TEXTURE_2D);
+//    glEnable(GL_TEXTURE_2D);
 
-    glScaled(2.0,2.0,2.0);
-    glBindTexture(GL_TEXTURE_2D, GLtexture[0]);
+    glScaled(5.0,5.0,5.0);
+    glColor3d(1.0,1.0,1.0);
+//    glBindTexture(GL_TEXTURE_2D, GLtexture[0]);
     a.draw();
-    glDisable(GL_TEXTURE_2D);
+//    glDisable(GL_TEXTURE_2D);
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    glDisable( GL_CULL_FACE );
+//    (new Bras_robot())->draw();
+//    (new Sphere())->draw();
+//    glCallList(box(0.4,0.4,0.2));
+//    glCallList(cone(0.006,0.02));
 }

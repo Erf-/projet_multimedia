@@ -9,13 +9,13 @@ Vec::Vec(double x, double y, double z){
  * @brief Vec::angle
  * @param v
  * @return
- * ici on ne retourne que la valeur absolue de l'angle
+ * ici on retourne la valeur orintee de l'angle de u vers v
  */
 GLdouble Vec::angle(Vec v){
     Vec a = Vec(x_,y_,z_)*(1/normV());
     Vec b = v*(1/v.normV());
     if(a.pscalV(b.orth())*a.pscalV(b.orth())!=1.0){
-        return acos(a.pscalV(b));
+        return acos(a.pscalV(b))*int(a.pscalV(b.orth())>0)-acos(a.pscalV(b))*int(a.pscalV(b.orth())<0)+M_PI*int(a.pscalV(b)==0);
     }
     return M_PI/2;
 }

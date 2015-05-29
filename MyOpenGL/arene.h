@@ -17,15 +17,20 @@ public:
     Paroi p_;
     Sphere spheres_[10];
     Bras_robot b_;
+    bool move_;//
+    Sphere ciblees_[10];
+    double pas_[3];//
 
-    Arene(int nb_points=30, double radius=3.0, double x=0.0, double y=0.0, double z=0.0);
-    bool genererNSpheres(int n){int i=0;for(i=0;i<n;i++) genererSphere(); return (i==n);}
+    Arene(int nb_points=30, double radius=1.5, double x=0.0, double y=0.0, double z=0.0);
+//    bool genererNSpheres(int n){int i=0;for(i=0;i<n;i++) genererSphere(); return (i==n);}
     bool is_s_in_hole(Sphere &s);//condition
     void draw();
 private slots:
     void genererSphere();    
 signals:
-    void sphere_axee(Sphere &s);/*sera connecte a la generation d'une nouvelle sphere et plus tard a la fin de partie*/
+    void sphere_ciblee();
+    void sphere_axee();
+    void moved();
 
 };
 

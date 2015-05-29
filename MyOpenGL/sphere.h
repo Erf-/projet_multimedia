@@ -14,9 +14,9 @@ class Sphere
     GLUquadric* params;
 
 public :
-    Sphere(double x=0.0, double y=0.0, double z=0.0);
+    Sphere(double x=0.0, double y=0.0, double z=0.0,double radius= 0.2);
     ~Sphere () ;
-    const static GLdouble radius_ = 3.0;
+    GLdouble radius_;
     GLdouble x_;
     GLdouble y_;
     GLdouble z_;

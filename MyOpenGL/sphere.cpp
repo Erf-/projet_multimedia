@@ -1,11 +1,12 @@
 #include "Sphere.h"
 
-Sphere::Sphere (double x, double y, double z)
+Sphere::Sphere (double x, double y, double z, double radius)
 {
     params = gluNewQuadric();
     x_=x;
     y_=y;
     z_=z;
+    radius_=radius;
 
 }
 Sphere::~Sphere(){
@@ -20,30 +21,20 @@ void Sphere::draw(){
      *
      */
 
-    //visible
-//    glColor3f(3,1,2);
-//    gluDisk(params,0.0,radius,20,1);
-//    gluDeleteQuadric(params);
-
-
     //transparent
     glTranslatef((float)x_,(float)y_,(float)z_);
-    glDisable( GL_CULL_FACE );
-    glEnable( GL_BLEND );
-    glDepthMask (GL_FALSE);
-    glColor4fv(Rose);
+//    glDisable( GL_CULL_FACE );
+//    glEnable( GL_BLEND );
+//    glDepthMask (GL_FALSE);
+//    glColor4fv(Rose);
 
-//    glColor3f(3,1,2);
+    glColor3f(3,1,2);
     gluQuadricDrawStyle(params,GLU_FILL);
-    gluQuadricTexture(params,GL_TRUE);
+//    gluQuadricTexture(params,GL_TRUE);
     gluSphere(params,radius_,30,30);
     gluDeleteQuadric(params);
 
-    glDepthMask (GL_TRUE);
-    glDisable( GL_BLEND );
-    glEnable( GL_CULL_FACE );
-
-
-    glDisable( GL_TEXTURE_2D );
-    glEnable( GL_CULL_FACE );
+//    glDepthMask (GL_TRUE);
+//    glDisable( GL_BLEND );
+//    glEnable( GL_CULL_FACE );
 }

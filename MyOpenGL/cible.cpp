@@ -14,5 +14,4 @@ void Cible::draw(){
     glColor4fv(Rose);
     cint_.draw();
     glDepthMask (GL_TRUE);
-    glEnable( GL_CULL_FACE );
 }

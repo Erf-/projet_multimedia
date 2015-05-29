@@ -1,10 +1,11 @@
-Initialisation robot.
+Initialisation robot 2.
 
 Definition des champs de la classe.
-Bras_robot::draw() en cours.
+Bras_robot::draw() finalisee.
+Test dessin et ajout dans arene.
 
 A faire:
- - verifier le draw() (pushmatrix et popmatrix)
+ - ajout des methodes de deplacement
  - tester
  - continuer l'ecriture des methodes
  - commenter

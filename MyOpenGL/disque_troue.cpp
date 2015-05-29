@@ -3,7 +3,7 @@
 Disque_troue::Disque_troue(int nb_points, double radius, double x, double y, double z) : Cercle(nb_points, radius, x, y, z)
 
 {
-    trou_=Trou(nb_points,radius/4,x,y,z);
+    trou_=Trou(nb_points,0.25,x,y,z);
     taille_=0;
 //    texture_=loadtgadisplayCDV("C:/Users/Johanna/Desktop/multimedia/MyOpenGL/bois.tga");
 }
@@ -71,7 +71,7 @@ void Disque_troue::add(int n){
     int k=0;
     while(k!=n){
         double val[3];
-        val[0]=rand_a_b(radius_/3,radius_/4)[0];
+        val[0]=rand_a_b(radius_/3,0.2)[0];
         val[1]=rand_a_b(radius_-val[0],-radius_+val[0],2)[0];
         val[2]=rand_a_b(radius_-val[0],-radius_+val[0],2)[1];
         Cible c = Cible(nb_points_,val[0],val[1],val[2],z_);

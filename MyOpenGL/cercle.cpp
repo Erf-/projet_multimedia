@@ -59,11 +59,9 @@ bool Cercle::calcul()
  */
 void Cercle::draw()
 {
-    glDisable( GL_CULL_FACE );
-    glBegin(GL_LINE_LOOP);
+    glBegin(GL_POLYGON);
     for(int i=0;i<nb_points_;i++){
         glVertex3d(points_[i][0],points_[i][1],points_[i][2]);
     }
     glEnd();
-    glEnable( GL_CULL_FACE );
 }

@@ -45,55 +45,55 @@ GLuint box(double lx, double ly, double depth){
 
     //face 1
     glTexCoord2d(1,0);
-    glVertex3d(lx/2,ly/2,depth/2);
+    glVertex3d(lx,ly,depth);
     glTexCoord2d(1,1);
-    glVertex3d(lx/2,ly/2,-depth/2);
+    glVertex3d(lx,ly,-depth);
     glTexCoord2d(0,1);
-    glVertex3d(-lx/2,ly/2,-depth/2);
+    glVertex3d(-lx,ly,-depth);
     glTexCoord2d(0,0);
-    glVertex3d(-lx/2,ly/2,depth/2);
+    glVertex3d(-lx,ly,depth);
 
     //face 2
     glTexCoord2d(1,0);
-    glVertex3d(lx/2,-ly/2,depth/2);
+    glVertex3d(lx,-ly,depth);
     glTexCoord2d(1,1);
-    glVertex3d(lx/2,-ly/2,-depth/2);
+    glVertex3d(lx,-ly,-depth);
     glTexCoord2d(0,1);
-    glVertex3d(lx/2,ly/2,-depth/2);
+    glVertex3d(lx,ly,-depth);
     glTexCoord2d(0,0);
-    glVertex3d(lx/2,ly/2,depth/2);
+    glVertex3d(lx,ly,depth);
 
     //face 3
     glTexCoord2d(1,0);
-    glVertex3d(-lx/2,-ly/2,depth/2;
+    glVertex3d(-lx,-ly,depth);
     glTexCoord2d(1,1);
-    glVertex3d(-lx/2,-ly/2,-depth/2;
+    glVertex3d(-lx,-ly,-depth);
     glTexCoord2d(0,1);
-    glVertex3d(lx/2,-ly/2,-depth/2;
+    glVertex3d(lx,-ly,-depth);
     glTexCoord2d(0,0);
-    glVertex3d(lx/2,-ly/2,depth/2;
+    glVertex3d(lx,-ly,depth);
 
     //face 4
     glTexCoord2d(1,0);
-    glVertex3d(-lx/2,ly/2,depth/2;
+    glVertex3d(-lx,ly,depth);
     glTexCoord2d(1,1);
-    glVertex3d(-lx/2,ly/2,-depth/2;
+    glVertex3d(-lx,ly,-depth);
     glTexCoord2d(0,1);
-    glVertex3d(-lx/2,-ly/2,-depth/2;
+    glVertex3d(-lx,-ly,-depth);
     glTexCoord2d(0,0);
-    glVertex3d(-lx/2,-ly/2,depth/2;
+    glVertex3d(-lx,-ly,depth);
 
     //face 5
-    glVertex3d(lx/2,ly/2,-depth/2;
-    glVertex3d(lx/2,-ly/2,-depth/2;
-    glVertex3d(-lx/2,-ly/2,-depth/2;
-    glVertex3d(-lx/2,ly/2,-depth/2;
+    glVertex3d(lx,ly,-depth);
+    glVertex3d(lx,-ly,-depth);
+    glVertex3d(-lx,-ly,-depth);
+    glVertex3d(-lx,ly,-depth);
 
     //face 6
-    glVertex3d(lx/2,-ly/2,depth/2;
-    glVertex3d(lx/2,ly/2,depth/2;
-    glVertex3d(-lx/2,ly/2,depth/2;
-    glVertex3d(-lx/2,-ly/2,depth/2;
+    glVertex3d(lx,-ly,depth);
+    glVertex3d(lx,ly,depth);
+    glVertex3d(-lx,ly,depth);
+    glVertex3d(-lx,-ly,depth);
 
     glEnd();
 
@@ -106,130 +106,150 @@ GLuint box(double lx, double ly, double depth){
  * Display list pour générer une sphère.
  * Utile pour le bras robot.
  */
-GLuint boule()
-{
-    GLuint boules=glGenLists(1);
-    glNewList( boules, GL_COMPILE );
+//GLuint boule()
+//{
+//    GLuint boules=glGenLists(1);
+//    glNewList( boules, GL_COMPILE );
 
-    GLUquadric *sphere;
-    sphere=gluNewQuadric();
-    gluSphere(sphere,0.2,45,45);
+//    GLUquadric *sphere;
+//    sphere=gluNewQuadric();
+//    gluSphere(sphere,0.2,45,45);
 
-    glEndList();
-    return boules;
-}
+//    glEndList();
+//    return boules;
+//}
 
 
 
 void Bras_robot::draw(){
 
-// socle
-(new Cercle())->draw();
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    glDisable( GL_CULL_FACE );
+    glTranslatef(x_, y_, z_);
+    // socle
+//    glPushMatrix();
+    glColor3d(1.0,1.0,1.0);
 
-// epaule
-glPushMatrix();
+    (new Cercle(30,0.4))->draw();
 
-glColor3f(0.5,1,1);
-glTranslatef(x_, y_, z_);
-glRotated (gamma_,0,0,1); // angle sur le sol tourne autour de z
-glRotated (alpha_,0,1,0);
-(new Sphere(x_,y_,z_));//mettre le rayon a 0.4
+    // epaule
+    glPushMatrix();
 
-// bras
-glEnable(GL_TEXTURE_2D);
+//    glColor3f(0.5,1,1);
+    glColor3d(1.0,1.0,1.0);
 
-glPushMatrix();
+//    glTranslatef(0, 0, 0);
+    glRotated (gamma_,0,0,1); // angle sur le sol tourne autour de z
+    glRotated (alpha_,0,1,0);
+    (new Sphere(x_,y_,z_))->draw();//mettre le rayon a 0.4
 
-glColor3f(1,1,1);
-glTranslatef(0, 0, -0.6);
-glCallList(box(0.1,0.1,0.4));
+    // bras
+    glEnable(GL_TEXTURE_2D);
 
-glDisable(GL_TEXTURE_2D);
+    glPushMatrix();
 
-// coude
-glPushMatrix();
+//    glColor3f(1,1,1);
+    glColor3d(1.0,1.0,1.0);
 
-glColor3f(0.5,1,1);
-glTranslatef(0, 0, -1.5);
-glRotatef (beta_,0,1,0); // 2e °liberté: angle sur lequel on doit intervenir pour mettre en mouvement le bras robot.
-(new Sphere(0, 0, 0));//rayon a 0.2
+    glTranslatef(0, 0, 0.6);
+    glCallList(box(0.1,0.1,0.4));
 
-// avant bras
-glEnable(GL_TEXTURE_2D);
+    glDisable(GL_TEXTURE_2D);
 
-glPushMatrix();
+    // coude
+    glPushMatrix();
 
-glColor3f(1,1,1);
-glTranslatef(0, 0, -0.6);
-glCallList(box(0.1,0.1,0.4));
+//    glColor3f(0.5,1,1);
+    glColor3d(1.0,1.0,1.0);
 
-glDisable(GL_TEXTURE_2D);
+    glTranslatef(0, 0, 0.6);
+    glRotatef (beta_,0,1,0); // 2e °liberté: angle sur lequel on doit intervenir pour mettre en mouvement le bras robot.
+    (new Sphere(0, 0, 0))->draw();//rayon a 0.2
 
-// poignet
-glPushMatrix();
+    // avant bras
+    glEnable(GL_TEXTURE_2D);
 
-glColor3f(0.5,1,1);
-glTranslatef(0, 0, -1.5);
-glRotatef (-20,1,0,0);
-(new Sphere(0, 0, 0));//rayon a 0.2
+    glPushMatrix();
 
-// doigts
+//    glColor3f(1,1,1);
+    glColor3d(1.0,1.0,1.0);
 
-// doigt 1 droit
+    glTranslatef(0, 0, 0.6);
+    glCallList(box(0.1,0.1,0.4));
 
-glPushMatrix();
+    glDisable(GL_TEXTURE_2D);
 
-glColor3f (0.7, 0.7, 0.7);
+    // poignet
+    glPushMatrix();
 
-glPushMatrix();
+    glColor3f(0.5,1,1);
+    glTranslatef(0, 0, 0.6);
+    glRotatef (-20,1,0,0);
+    (new Sphere(0, 0, 0))->draw();//rayon a 0.2
 
-glRotatef (-35, 0, 1, 0);
-glTranslatef (0, 0, -0.25);
-glCallList(box(0.4,0.4,0.2));
+    // doigts
 
-glPopMatrix();
+    // doigt 1 droit
 
-glPushMatrix();
+    glPushMatrix();
 
-glRotatef (-30, 0, 1, 0);
-glTranslatef (0, 0, -0.4);
-glRotatef (-120, 0, 1, 0); // angle pince
-glCallList(cone(0.006,0.02));
+//    glColor3f (0.7, 0.7, 0.7);
+    glColor3d(1.0,1.0,1.0);
 
-glPopMatrix();
+    glPushMatrix();
 
-glPopMatrix();
+    glRotatef (-35, 0, 1, 0);
+    glTranslatef (0, 0, 0.25);
+    glCallList(box(0.04,0.04,0.08));
 
-//doigt 2 gauche
-glPushMatrix();
+    glPopMatrix();
 
-glColor3f (0.7, 0.7, 0.7);
+    glPushMatrix();
 
-glPushMatrix();
+    glRotatef (-30, 0, 1, 0);
+    glTranslatef (0, 0, 0.4);
+    glRotatef (-120, 0, 1, 0); // angle pince
+    glCallList(cone(0.03,0.2));
 
-glRotatef (35, 0, 1, 0);
-glTranslatef (0, 0, -0.25);
-glCallList(box(0.4,0.4,0.2));
+    glPopMatrix();
 
-glPopMatrix();
+    glPopMatrix();
 
-glPushMatrix();
+    //doigt 2 gauche
+    glPushMatrix();
 
-glRotatef (30, 0, 1, 0);
-glTranslatef (0, 0, -0.4);
-glRotatef (120, 0, 1, 0); // angle pince
-glCallList(cone(0.006,0.02));
+//    glColor3f (0.7, 0.7, 0.7);
+    glColor3d(1.0,1.0,1.0);
 
-glPopMatrix();
+    glPushMatrix();
 
-glPopMatrix();
+    glRotatef (35, 0, 1, 0);
+    glTranslatef (0, 0, 0.25);
+    glCallList(box(0.04,0.04,0.08));
 
-glPopMatrix();
+    glPopMatrix();
 
-glPopMatrix();
+    glPushMatrix();
 
-glPopMatrix();
+    glRotatef (30, 0, 1, 0);
+    glTranslatef (0, 0, 0.4);
+    glRotatef (120, 0, 1, 0); // angle pince
+    glCallList(cone(0.03,0.2));
 
-glPopMatrix();
+    glPopMatrix();
+
+    glPopMatrix();
+
+    glPopMatrix();
+
+    glPopMatrix();
+
+    glPopMatrix();
+
+    glPopMatrix();
+
+    glPopMatrix();
+
+//    glPopMatrix();
 
 }
